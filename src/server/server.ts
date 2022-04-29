@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import keys from '../keys';
+import dbConnection from '../database/config';
 
 export default class Server{
   
@@ -17,7 +18,7 @@ export default class Server{
       clients: '/api/clients'
     }
 
-    // this.conectarDB();
+    this.conectarDB();
 
     this.middlewares();
 
@@ -25,11 +26,15 @@ export default class Server{
 
   }
 
+  private async conectarDB(){
+    await dbConnection();
+  }
+
   public middlewares(){
     this.app.use(cors());
     this.app.use(express.json());
     this.app.use(express.urlencoded({extended: false}))
-    this.app.use(morgan('combined'));
+    this.app.use(morgan('dev'));
   }
 
   public routes(){
