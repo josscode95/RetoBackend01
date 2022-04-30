@@ -4,7 +4,7 @@ interface IClientSchema{
   nombre:string;
   apellido:string;
   edad:number;
-  fechaNacimiento:Date;
+  fechaNacimiento:string;
   fechaFallecimiento:string;
 }
 
@@ -22,7 +22,7 @@ const ClientSchema = new Schema<IClientSchema>({
     required: [true, 'La edad es requerida']
   },
   fechaNacimiento:{
-    type: Date
+    type: String
   },
   fechaFallecimiento:{
     type: String
