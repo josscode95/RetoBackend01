@@ -1,5 +1,6 @@
 export const isValidateDate = (date:string) => {
   if(typeof date !== "string") return false;
+  if(!date.includes("-")) return false;
   const res = date.split("-");
   const resNumber = [];
   for(let i = 0; i < res.length; i++){
@@ -8,5 +9,5 @@ export const isValidateDate = (date:string) => {
   if(resNumber[0] > 31) return false;
   if(resNumber[1] > 12) return false;
   if(resNumber[2] > 2050) return false;
-  return true
+  return true;
 }
