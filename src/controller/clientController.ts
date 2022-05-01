@@ -16,22 +16,22 @@ export const postClient = async(req:Request, res:Response) => {
 export const getPideClientes = async(req:Request, res:Response) => {
 
   const resp = await Clients.find();
-  const arrEdades:Number[] = [];
-  const current = 0;
+  const arrEdades:number[] = [];
+  const current:number = 0;
 
   resp.map(client => {
     arrEdades.push(client.edad);
   })
-  const result:any = arrEdades.reduce((a:any, b:any) => a + b, current);
+  const result:number = arrEdades.reduce((a:number, b:number) => a + b, current);
   const promedioEdad = (result/arrEdades.length).toFixed(2)
 
   //XXXXXXXXXXXXXXXXXXX====XXXXXXXXXXXXXXXXXXXXXXXXXX
 
-  const edadesCuadrado:any = [];
-  arrEdades.map((n:any) => {
+  const edadesCuadrado:number[] = [];
+  arrEdades.map(n => {
     edadesCuadrado.push(n**2)
   })
-  const resultSumCuadrado:any = edadesCuadrado.reduce((a:any, b:any) => a + b, current)
+  const resultSumCuadrado:number = edadesCuadrado.reduce((a:number, b:number) => a + b, current)
   const resultFormula = (resultSumCuadrado/arrEdades.length) - (Number(promedioEdad)**2)
   const desviacionStandar = Math.sqrt(resultFormula).toFixed(2);
 
@@ -41,3 +41,5 @@ export const getPideClientes = async(req:Request, res:Response) => {
   })
 
 }
+
+//PROBAR PORQUE HE COLCOADO LOS TYPES
