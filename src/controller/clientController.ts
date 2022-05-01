@@ -1,15 +1,24 @@
 import { Request, Response } from "express";
+import { dateRandom } from "../helpers/date-random";
 
 import Clients from "../models/clients";
 
 export const postClient = async(req:Request, res:Response) => {
 
   const { nombre, apellido, edad, fechaNacimiento } = req.body
-  const client = new Clients({ nombre, apellido, edad, fechaNacimiento });
+
+  const fechaFallecimiento = dateRandom(fechaNacimiento)
+
+  const client = new Clients({ nombre, apellido, edad, fechaNacimiento, fechaFallecimiento });
 
   await client.save()
 
-  res.json(client);
+  res.json({
+    "nombre": client.nombre,
+    "apellido": client.apellido,
+    "edad": client.edad,
+    "fechaNacimiento": client.fechaNacimiento
+  });
 
 }
 
@@ -42,4 +51,11 @@ export const getPideClientes = async(req:Request, res:Response) => {
 
 }
 
-//PROBAR PORQUE HE COLCOADO LOS TYPES
+export const getListClients = async(req:Request, res:Response) => {
+
+  const resp = await Clients.find();
+  
+  res.json(resp)
+
+}
+

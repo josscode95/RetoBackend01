@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { getPideClientes, postClient } from "../controller/clientController";
+import { getListClients, getPideClientes, postClient } from "../controller/clientController";
 import { isValidateDate } from "../helpers/date-validator";
 import { validarCampos } from "../middlewares/validarCampos";
 
@@ -19,7 +19,10 @@ router.post(
   postClient
 )
 
-// //GET /kpideclientes
-router.get("/kpideclientes", getPideClientes)
+//GET /kpideclientes
+router.get("/kpideclientes", getPideClientes);
+
+//GET /listclientes
+router.get("/listclientes", getListClients);
 
 module.exports = router;

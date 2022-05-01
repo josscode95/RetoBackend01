@@ -29,4 +29,9 @@ const ClientSchema = new Schema<IClientSchema>({
   }
 })
 
+ClientSchema.methods.toJSON = function(){
+  const { __v, _id , ...data } = this.toObject();
+  return data;
+}
+
 export default mongoose.model('Clients', ClientSchema);
