@@ -5,7 +5,7 @@ import keys from '../keys';
 import dbConnection from '../database/config';
 import swaggerUI from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
-const swaggerDocs = require('./swaggerDoc')
+import swaggerDoc from '../helpers/swaggerDoc';
 
 export default class Server{
   
@@ -21,7 +21,7 @@ export default class Server{
     this.paths = {
       clients: '/clients'
     }
-    this.swaggerSpec = swaggerDocs;
+    this.swaggerSpec = swaggerDoc;
 
     this.conectarDB();
 
