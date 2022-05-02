@@ -15,7 +15,7 @@ export default class Server{
     this.port = Number(keys.PORT);
     this.app = express();
     this.paths = {
-      clients: '/api/clients'
+      clients: '/clients'
     }
 
     this.conectarDB();

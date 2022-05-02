@@ -22,7 +22,7 @@ class Server {
         this.port = Number(keys_1.default.PORT);
         this.app = (0, express_1.default)();
         this.paths = {
-            clients: '/api/clients'
+            clients: '/clients'
         };
         this.conectarDB();
         this.middlewares();
