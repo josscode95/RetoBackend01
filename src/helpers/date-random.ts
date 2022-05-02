@@ -19,6 +19,4 @@ export const dateRandom = (fecha:string) => {
   return newArr.join('-')
 }
 
-//PULIR LAS FECHAS Y FORMAT '04'
 //FALTA SOLO DOCUMENTAR API
-//SUBIR A HEROKU

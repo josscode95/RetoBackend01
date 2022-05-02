@@ -6,7 +6,6 @@ import { validarCampos } from "../middlewares/validarCampos";
 
 const router = Router();
 
-//POST /creacliente
 router.post(
   '/creacliente',
   [

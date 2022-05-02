@@ -3,12 +3,16 @@ import cors from 'cors';
 import morgan from 'morgan';
 import keys from '../keys';
 import dbConnection from '../database/config';
+import swaggerUI from 'swagger-ui-express';
+import swaggerJSDoc from 'swagger-jsdoc';
+import { swaggerDocs } from './swagger';
 
 export default class Server{
   
   public app:express.Application;
   public port:number;
   public paths:any;
+  public swaggerSpec:swaggerJSDoc.Options;
 
   constructor(){
 
@@ -17,6 +21,7 @@ export default class Server{
     this.paths = {
       clients: '/clients'
     }
+    this.swaggerSpec = swaggerDocs;
 
     this.conectarDB();
 
@@ -31,10 +36,12 @@ export default class Server{
   }
 
   public middlewares(){
+    this.app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerJSDoc(this.swaggerSpec)))
     this.app.use(cors());
     this.app.use(express.json());
     this.app.use(express.urlencoded({extended: false}))
     this.app.use(morgan('dev'));
+    
   }
 
   public routes(){

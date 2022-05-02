@@ -24,6 +24,4 @@ const dateRandom = (fecha) => {
     return newArr.join('-');
 };
 exports.dateRandom = dateRandom;
-//PULIR LAS FECHAS Y FORMAT '04'
 //FALTA SOLO DOCUMENTAR API
-//SUBIR A HEROKU

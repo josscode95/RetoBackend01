@@ -17,6 +17,9 @@ const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 const keys_1 = __importDefault(require("../keys"));
 const config_1 = __importDefault(require("../database/config"));
+const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
+const swagger_jsdoc_1 = __importDefault(require("swagger-jsdoc"));
+const swagger_1 = require("./swagger");
 class Server {
     constructor() {
         this.port = Number(keys_1.default.PORT);
@@ -24,6 +27,7 @@ class Server {
         this.paths = {
             clients: '/clients'
         };
+        this.swaggerSpec = swagger_1.swaggerDocs;
         this.conectarDB();
         this.middlewares();
         this.routes();
@@ -34,6 +38,7 @@ class Server {
         });
     }
     middlewares() {
+        this.app.use("/", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup((0, swagger_jsdoc_1.default)(this.swaggerSpec)));
         this.app.use((0, cors_1.default)());
         this.app.use(express_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: false }));

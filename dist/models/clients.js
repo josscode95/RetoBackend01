@@ -49,7 +49,8 @@ const ClientSchema = new mongoose_1.Schema({
         required: [true, 'La edad es requerida']
     },
     fechaNacimiento: {
-        type: String
+        type: String,
+        required: [true, "Fecha de nacimiento es requerido"]
     },
     fechaFallecimiento: {
         type: String

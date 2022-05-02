@@ -6,7 +6,6 @@ const clientController_1 = require("../controller/clientController");
 const date_validator_1 = require("../helpers/date-validator");
 const validarCampos_1 = require("../middlewares/validarCampos");
 const router = (0, express_1.Router)();
-//POST /creacliente
 router.post('/creacliente', [
     (0, express_validator_1.check)('nombre', 'El nombre es obligatorio').not().isEmpty(),
     (0, express_validator_1.check)('apellido', 'El apellido es obligatorio').not().isEmpty(),
