@@ -5,7 +5,7 @@ import keys from '../keys';
 import dbConnection from '../database/config';
 import swaggerUI from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
-import { swaggerDocs } from './swagger';
+import { swaggerDocs } from './swaggerDoc';
 
 export default class Server{
   
@@ -32,7 +32,7 @@ export default class Server{
   }
 
   private async conectarDB(){
-    await dbConnection();
+    await dbConnection()
   }
 
   public middlewares(){

@@ -2,7 +2,7 @@ export const swaggerDocs = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Reto backend API",
+      title: "Reto backend API!",
       version: "1.0.0",
       description: "Reto backend por LLATAN S.A.C."
     },
