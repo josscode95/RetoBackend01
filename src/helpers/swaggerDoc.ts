@@ -23,7 +23,7 @@ export default {
       }
     ],
     paths: {
-      "/creacliente":{
+      "/clients/creacliente":{
         post: {
           tags: ["Client"],
           description: "En este endpoint creas un cliente",
@@ -79,7 +79,7 @@ export default {
           }
         }
       },
-      "/kpideclientes":{
+      "/clients/kpideclientes":{
         get: {
           tags: ["Client"],
           description: "Endpoint para obtener promedio de edad de los clientes y la desviacion standar",
@@ -101,7 +101,7 @@ export default {
           }
         }
       },
-      "/listclientes": {
+      "/clients/listclientes": {
         get: {
           tags: ["Client"],
           description: "Endpoint para traer todos los clientes con sus datos y fecha probable de muerte",
