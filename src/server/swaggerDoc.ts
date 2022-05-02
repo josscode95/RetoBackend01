@@ -1,4 +1,4 @@
-export const swaggerDocs = {
+const swaggerDocs = {
   definition: {
     openapi: "3.0.0",
     info: {
@@ -139,3 +139,5 @@ export const swaggerDocs = {
   },
   apis: ['../routes/clients.ts', '../models/clients.ts']
 }
+
+module.exports = swaggerDocs;

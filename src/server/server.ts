@@ -5,7 +5,7 @@ import keys from '../keys';
 import dbConnection from '../database/config';
 import swaggerUI from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
-import { swaggerDocs } from './swaggerDoc';
+const swaggerDocs = require('./swaggerDoc')
 
 export default class Server{
   

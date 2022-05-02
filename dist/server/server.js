@@ -19,7 +19,7 @@ const keys_1 = __importDefault(require("../keys"));
 const config_1 = __importDefault(require("../database/config"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const swagger_jsdoc_1 = __importDefault(require("swagger-jsdoc"));
-const swaggerDoc_1 = require("./swaggerDoc");
+const swaggerDocs = require('./swaggerDoc');
 class Server {
     constructor() {
         this.port = Number(keys_1.default.PORT);
@@ -27,7 +27,7 @@ class Server {
         this.paths = {
             clients: '/clients'
         };
-        this.swaggerSpec = swaggerDoc_1.swaggerDocs;
+        this.swaggerSpec = swaggerDocs;
         this.conectarDB();
         this.middlewares();
         this.routes();
